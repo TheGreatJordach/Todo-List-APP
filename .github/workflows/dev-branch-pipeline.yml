@@ -16,12 +16,19 @@ jobs:
           echo "DATASOURCE_USERNAME=${{ secrets.DATASOURCE_USERNAME }}"
           echo "DATASOURCE_PASSWORD=${{ secrets.DATASOURCE_PASSWORD }}"
           echo "DATASOURCE_DATABASE=${{ secrets.DATASOURCE_DATABASE }}"
+          echo "APP_CACHE_TTL=${{ secrets.APP_CACHE_TTL }}"
+          echo "APP_CACHE_MAX=${{ secrets.APP_CACHE_MAX }}"
+          echo "APP_PORT=${{ secrets.APP_PORT }}"
           # Add more checks as needed
         env:
           DATASOURCE_HOST: ${{ secrets.DATASOURCE_HOST }}
           DATASOURCE_USERNAME: ${{ secrets.DATASOURCE_USERNAME }}
           DATASOURCE_PASSWORD: ${{ secrets.DATASOURCE_PASSWORD }}
           DATASOURCE_DATABASE: ${{ secrets.DATASOURCE_DATABASE }}
+          # Add app variables
+          APP_CACHE_TTL: ${{ secrets.APP_CACHE_TTL }}
+          APP_CACHE_MAX: ${{ secrets.APP_CACHE_MAX }}
+          APP_PORT: ${{ secrets.APP_PORT }}
           # Add Swagger Variables
           MIT_LICENCE_URL: ${{ secrets.MIT_LICENCE_URL }}
           SWAGGER_SERVER: ${{ secrets.SWAGGER_SERVER }}
