@@ -104,7 +104,7 @@ jobs:
 
   auto_merge:
 
-    name: Create Pull Request from Dev to Main # If All Pass
+    name: Create Pull Request from feature/add-crud-operation to Main # If All Pass
     runs-on: ubuntu-latest
     needs: [ lint, coverage, build ] # Ensure all jobs pass
     steps:
@@ -125,4 +125,4 @@ jobs:
 
       - name: Create Pull Request
         run: |
-          gh pr create --base main --head dev --title "Merge feature Branch into Main" --body "This pull request merges the changes from feature Branch into the main branch."
+          gh pr create --base main --head feature/add-crud-operation --title "Merge feature Branch into Main" --body "This pull request merges the changes from feature Branch into the main branch."
