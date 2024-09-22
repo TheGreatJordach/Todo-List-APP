@@ -1,0 +1,17 @@
+### GET ALL USER
+GET http://localhost:3000/v1/api/users
+Accept: application/json
+###
+
+### GET USER BY PROFILE NAME
+GET http://localhost:3000/v1/api/users/?profile=TheGreatJordach
+Accept: application/json
+
+###
+
+
+### GET USER BY EMAIL
+GET http://localhost:3000/v1/api/users/?email=jordach@me.com
+Accept: application/json
+
+###

@@ -1,0 +1,14 @@
+### Send POST request with json body
+PATCH http://localhost:3000/api/update
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+### GET USER BY EMAIL
+DELETE http://localhost:3000/api/users/?profile=TheGreatJordach
+Accept: application/json
+
+###

@@ -30,6 +30,7 @@ jobs:
           APP_CACHE_TTL: ${{ secrets.APP_CACHE_TTL }}
           APP_CACHE_MAX: ${{ secrets.APP_CACHE_MAX }}
           APP_PORT: ${{ secrets.APP_PORT }}
+          APP_PREFIX: ${{ secrets.APP_PREFIX }}
           # Add Swagger Variables
           SWAGGER_LICENCE_URL: ${{ secrets.SWAGGER_LICENCE_URL }}
           SWAGGER_SERVER: ${{ secrets.SWAGGER_SERVER }}

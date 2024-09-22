@@ -25,7 +25,7 @@ jobs:
           echo "APP_PORT=${{ secrets.APP_PORT }}"
           echo "APP_CACHE_TTL=${{ secrets.APP_CACHE_TTL }}"
           echo "APP_CACHE_MAX=${{ secrets.APP_CACHE_MAX }}"
-          
+          echo "APP_PREFIX=${{ secrets.APP_PREFIX }}
           echo "SWAGGER_LICENCE_URL=${{ secrets.SWAGGER_LICENCE_URL }}"
           echo "SWAGGER_SERVER=${{ secrets.SWAGGER_SERVER }}"
           echo "SWAGGER_TITLE=${{ secrets.SWAGGER_TITLE }}"

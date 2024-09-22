@@ -18,6 +18,8 @@ declare const module:any
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+
+
   if (module.hot) {
     module.hot.accept();
     module.hot.dispose(
@@ -28,9 +30,11 @@ async function bootstrap() {
   const swaggerDocument = SwaggerModule.createDocument(app,swaggerConfig);
   SwaggerModule.setup(SWAGGER_PATH,app,swaggerDocument)
 
- const configService = app.get(ConfigService)
- const port = configService.get<number>("APP_PORT")
+  const configService = app.get(ConfigService)
+  const globalPrefix: string = configService.get<string>("APP_PREFIX")
+  const port: number = configService.get<number>("APP_PORT")
 
+  app.setGlobalPrefix(globalPrefix)
   await app.listen(port);
 }
 bootstrap();

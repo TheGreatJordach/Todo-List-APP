@@ -39,6 +39,8 @@ export class EnvironmentValidation {
   APP_CACHE_MAX:number
   @isNonEmptyPositiveNumber()
   APP_PORT:number
+  @IsNonEmptyString()
+  APP_PREFIX:string
 
 
 }

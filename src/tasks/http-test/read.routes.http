@@ -1,0 +1,11 @@
+# GET ALL TASKS
+GET http://localhost:3000/v1/api/read/todos?page=1&limit=10
+Accept: application/json
+
+###
+
+# GET 1 TASKS
+GET http://localhost:3000/v1/api/read/todos/1
+Accept: application/json
+
+###

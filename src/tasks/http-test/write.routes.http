@@ -1,0 +1,25 @@
+### CREATE A POST
+POST http://localhost:3000/api/v1/write/todos
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+
+### delete
+DELETE http://localhost:3000/api/v1/write/todos/1
+Accept: application/json
+
+###
+
+
+### UPDATE A POST
+PATCH http://localhost:3000/api/v1/write/todos/1
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
