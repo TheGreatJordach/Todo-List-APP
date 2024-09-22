@@ -3,7 +3,7 @@ name: Feature Branch CI Pipeline
 on:
   push:
     branches:
-      - feature/add-crud-operation
+      - feature/add-crud-operation # Update branch name
 
 jobs:
   validate-env:
@@ -108,10 +108,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ lint, coverage, build ] # Ensure all jobs pass
     steps:
-      - name: Checkout the dev branch
+      - name: Checkout the feature/add-crud-operation branch  # Update branch name
         uses: actions/checkout@v4
         with:
-          ref: dev
+          ref: feature/add-crud-operation                     # Update branch name
 
       - name: Set up Git
         run: |
@@ -124,5 +124,5 @@ jobs:
           echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
 
       - name: Create Pull Request
-        run: |
+        run: |                             # Update branch name
           gh pr create --base main --head feature/add-crud-operation --title "Merge feature Branch into Main" --body "This pull request merges the changes from feature Branch into the main branch."
