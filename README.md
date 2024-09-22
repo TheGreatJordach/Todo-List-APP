@@ -12,7 +12,7 @@ In this project comes from [roadma.sh](https://roadmap.sh/). <br> I'm required t
 
 
 ## Goals
-The skills you will learn from this project include:
+Skills required for this project include:
 
 * [ ] User authentication
 * [ ] Schema design and Databases

@@ -11,7 +11,7 @@ jobs:
     name: Load and Validate Environment Variables
     runs-on: ubuntu-latest
     steps:
-      - name: Check environment variables
+      - name: Check Prod environment variables
         run: |
           echo "RDS_ENDPOINT=${{ secrets.RDS_ENDPOINT }}"
           echo "RDS_PORT=${{ secrets.RDS_PORT }}"
@@ -19,9 +19,20 @@ jobs:
           echo "RDS_USERNAME=${{ secrets.RDS_USERNAME }}"
           echo "RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}"
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}"
-          echo "APP_PORT=${{ secrets.APP_PORT }}"
+          
           echo "VERCEL_TOKEN=${{ secrets.VERCEL_TOKEN }}"
+          
+          echo "APP_PORT=${{ secrets.APP_PORT }}"
+          echo "APP_CACHE_TTL=${{ secrets.APP_CACHE_TTL }}"
+          echo "APP_CACHE_MAX=${{ secrets.APP_CACHE_MAX }}"
+          
+          echo "SWAGGER_LICENCE_URL=${{ secrets.SWAGGER_LICENCE_URL }}"
+          echo "SWAGGER_SERVER=${{ secrets.SWAGGER_SERVER }}"
+          echo "SWAGGER_TITLE=${{ secrets.SWAGGER_TITLE }}"
           echo "SWAGGER_PATH=${{ secrets.SWAGGER_PATH }}"
+          echo "SWAGGER_DESCRIPTION=${{ secrets.SWAGGER_DESCRIPTION }}"
+          echo "SWAGGER_VERSION=${{ secrets.SWAGGER_VERSION }}"
+          echo "SWAGGER_LICENCE=${{ secrets.SWAGGER_LICENCE }}"
 
   sonarcloud:
     name: SonarCloud Code Analysis

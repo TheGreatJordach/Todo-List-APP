@@ -1,6 +1,9 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { ConfigService } from "@nestjs/config";
+import { SwaggerModule } from "@nestjs/swagger";
+import { swaggerConfig } from "./configuration/swagger/swagger.document";
+import { SWAGGER_PATH } from "./configuration/swagger/env.swagger";
 
 /**
  * TypeScript's Awareness:A declaration for a constant named `module` with a type of `any`.
@@ -21,6 +24,9 @@ async function bootstrap() {
       () => app.close()
     );
   }
+
+  const swaggerDocument = SwaggerModule.createDocument(app,swaggerConfig);
+  SwaggerModule.setup(SWAGGER_PATH,app,swaggerDocument)
 
  const configService = app.get(ConfigService)
  const port = configService.get<number>("APP_PORT")

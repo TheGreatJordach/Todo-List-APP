@@ -4,9 +4,10 @@ import { InternalServerErrorException } from "@nestjs/common";
 import { IsNonEmptyString } from "../common/decorators/is-non-empty-string";
 import { isNonEmptyPositiveNumber } from "../common/decorators/is-non-empty-positive.int";
 
+
 export class EnvironmentValidation {
 
- // ! **** String **********/
+ // ! **** database env **********/
   @IsNonEmptyString()
   DATASOURCE_USERNAME:string
   @IsNonEmptyString()
@@ -15,10 +16,23 @@ export class EnvironmentValidation {
   DATASOURCE_DATABASE:string
   @IsNonEmptyString()
   DATASOURCE_HOST:string
-
-  //! **** Number **********/
   @isNonEmptyPositiveNumber()
   DATASOURCE_PORT:number
+
+  //? **** Swagger env **********/
+  @IsNonEmptyString()
+  SWAGGER_VERSION:string
+  @IsNonEmptyString()
+  SWAGGER_LICENCE:string
+  @IsNonEmptyString()
+  SWAGGER_LICENCE_URL:string
+  @IsNonEmptyString()
+  SWAGGER_DESCRIPTION:string
+  @IsNonEmptyString()
+  SWAGGER_TITLE:string
+
+
+  //* **** App env **********/
   @isNonEmptyPositiveNumber()
   APP_CACHE_TTL:number
   @isNonEmptyPositiveNumber()
@@ -39,7 +53,7 @@ export function validatedEnvVariables(config: Record<string, unknown>) {
   })
 
   if(errors.length >0) {
-    throw new InternalServerErrorException(`‼️ ${ errors.length } variables failed  environment validation steps. read the log: ${errors}`)
+    throw new InternalServerErrorException(`‼️ ${ errors.length } variables failed  environment validation steps. read the log: ${errors.toString()}`)
   }
 
   console.log(
