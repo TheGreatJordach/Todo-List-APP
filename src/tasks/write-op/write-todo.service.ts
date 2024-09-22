@@ -1,11 +1,22 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, NotFoundException } from "@nestjs/common";
 import { CreateTodoDto } from '../dto/create-todo.dto';
 import { UpdateTodoDto } from '../dto/update-todo.dto';
+import { InjectRepository } from "@nestjs/typeorm";
+import { Todo } from "../entities/task.entity";
+import { Repository } from "typeorm";
 
 @Injectable()
 export class WriteTodoService {
-  create(createTaskDto: CreateTodoDto) {
-    return 'This action adds a new task';
+
+  constructor(@InjectRepository(Todo) private readonly todoRepository: Repository<Todo>) {}
+  async create(createTaskDto: CreateTodoDto) {
+    const todo = this.todoRepository.create(createTaskDto);
+    try {
+      return await this.todoRepository.save(todo);
+    } catch (error) {
+      throw new InternalServerErrorException(`Error creating todo: ${error}`);
+    }
+
   }
 
   findAll() {

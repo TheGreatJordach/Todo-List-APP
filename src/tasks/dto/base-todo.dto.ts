@@ -28,7 +28,7 @@ export class BaseTodoDto{
   @ApiProperty({
     description:"Status of the todo item",
     required:false,
-    example: TaskStatus.PENDING
+    example: TaskStatus.IN_PROGRESS
   })
   @IsOptional()
   @IsEnum(TaskStatus)

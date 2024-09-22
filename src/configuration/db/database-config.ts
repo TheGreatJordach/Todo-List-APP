@@ -14,6 +14,6 @@ export const DatabaseConfig = async (configService:ConfigService):Promise<TypeOr
   password:configService.getOrThrow<string>("DATASOURCE_PASSWORD"),
   entities:[User,Todo,TodoVersion],
   synchronize:true, // Dev only
-  logging:true,
+  logging:false,
 
 })

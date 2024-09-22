@@ -2,6 +2,7 @@ import { Controller, Get, Param, Query } from "@nestjs/common";
 import { ReadTodoService } from "./read-todo.service";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Todo } from "../entities/task.entity";
+import { IdDto } from "../../common/dtos/id-dto";
 
 @ApiTags("Todo - read operation")
 @Controller('read/todos/')
@@ -30,7 +31,7 @@ export class ReadTodoController {
     summary: " Return the Todo items with the provided id.",
     description: "Fetches the item from the database or return null if not found."
   })
-  todoById(@Param('id') id: number) {
+  todoById(@Param() { id }: IdDto) {
     return "This handler returns task with id " + id;
   }
 }

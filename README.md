@@ -3,7 +3,7 @@
 
 <img src="assets/images/project-desc.png" alt="Ci description">
 
-In this project comes from [roadma.sh](https://roadmap.sh/). <br> I'm required to develop **a RESTful API to allow users to manage their to-do list.** The previous backend projects have only focused on the CRUD operations, but this project will require me to implement user authentication as well.
+In [this project](https://roadmap.sh/projects/todo-list-api) comes from [roadma.sh](https://roadmap.sh/). <br> I'm required to develop **a RESTful API to allow users to manage their to-do list.** The previous backend projects have only focused on the CRUD operations, but this project will require me to implement user authentication as well.
 
 
 

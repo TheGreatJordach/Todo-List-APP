@@ -15,8 +15,8 @@ export class User {
   @Column({nullable:false})
   password:string
 
-  @Column({unique:true})
-  profile:string
+  @Column({unique:true,nullable:true})
+  profileName:string
 
   @ManyToOne(() => Todo, (todo) => todo.user)
   todos:Todo[]

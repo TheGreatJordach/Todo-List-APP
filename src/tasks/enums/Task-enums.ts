@@ -6,6 +6,6 @@ export enum TaskPriority {
 
 export enum TaskStatus {
   NOT_STARTED = "Not started",
-  PENDING = "Pending",
+  IN_PROGRESS = "Pending",
   TERMINATED="Terminated"
 }

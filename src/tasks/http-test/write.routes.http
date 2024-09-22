@@ -1,10 +1,10 @@
 ### CREATE A POST
-POST http://localhost:3000/api/v1/write/todos
+POST http://localhost:3000/v1/api/write/todos/
 Content-Type: application/json
 
 {
-  "id": 999,
-  "value": "content"
+  "title": "Backen App",
+  "description": "Create a NestJS Backend App"
 }
 
 
