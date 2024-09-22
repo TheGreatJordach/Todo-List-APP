@@ -104,7 +104,7 @@ jobs:
 
   auto_merge:
 
-    name: Create Pull Request from Dev to Main # If All Pass
+    name: Create Pull Request from feature/add-crud-operation to Main # If All Pass
     runs-on: ubuntu-latest
     needs: [ lint, coverage, build ] # Ensure all jobs pass
     steps:
