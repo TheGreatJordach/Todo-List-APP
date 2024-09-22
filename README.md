@@ -123,6 +123,8 @@ Update an existing to-do item using the following request:
 
 <div style="align-items: center">
 
+
+[![Feature Branch CI Pipeline](https://github.com/TheGreatJordach/Todo-List-APP/actions/workflows/dev-branch-pipeline.yml/badge.svg)](https://github.com/TheGreatJordach/Todo-List-APP/actions/workflows/dev-branch-pipeline.yml)
 [![codecov](https://codecov.io/gh/TheGreatJordach/Todo-List-APP/graph/badge.svg?token=ilMpWHnJYl)](https://codecov.io/gh/TheGreatJordach/Todo-List-APP)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP)
