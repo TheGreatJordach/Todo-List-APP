@@ -1,7 +1,12 @@
-import { InternalServerErrorException, Module, ValidationPipe } from "@nestjs/common";
+import {
+ InternalServerErrorException,
+  Module,
+  ValidationPipe,
+} from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { CacheModule } from "@nestjs/cache-manager";
 import { APP_PIPE } from "@nestjs/core";
+import { validationPipeOptions } from "./error-formater-pipe";
 
 
 
@@ -35,14 +40,7 @@ import { APP_PIPE } from "@nestjs/core";
   ],
   providers: [{
     provide: APP_PIPE,
-    useValue: new ValidationPipe({
-      whitelist:true,
-      transform: true,
-      forbidNonWhitelisted: true,
-      transformOptions:{
-        enableImplicitConversion: true
-      }
-    })
+    useValue: new ValidationPipe(validationPipeOptions)
   }]
 })
 export class AppConfigModule {}

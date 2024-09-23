@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Todo-List-APP documentation</title>
+        <title>todo-list-app documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,7 +64,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="./" class="navbar-brand">Todo-List-APP documentation</a>
+                    <a href="./" class="navbar-brand">todo-list-app documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -82,28 +82,109 @@
                <div class="content getting-started">
                    <div class="content-data">
 
+<h1>Project description</h1>
+<img src="assets/images/project-desc.png" alt="Ci description">
+
+<p>In <a href="https://roadmap.sh/projects/todo-list-api">this project</a> comes from <a href="https://roadmap.sh/">roadma.sh</a>. <br> I&#39;m required to develop <strong>a RESTful API to allow users to manage their to-do list.</strong> The previous backend projects have only focused on the CRUD operations, but this project will require me to implement user authentication as well.</p>
+<h4>Image illustration</h4>
+<h2>Goals</h2>
+<p>Skills required for this project include:</p>
+<ul>
+<li><input disabled="" type="checkbox"> User authentication</li>
+<li><input disabled="" type="checkbox"> Schema design and Databases</li>
+<li><input disabled="" type="checkbox"> RESTful API design</li>
+<li><input disabled="" type="checkbox"> CRUD operations</li>
+<li><input disabled="" type="checkbox"> Error handling</li>
+<li><input disabled="" type="checkbox"> Security</li>
+</ul>
+<h2>Requirements</h2>
+<p>I&#39;m required to develop a <strong>RESTful API with following endpoints</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> User registration to create a new user</li>
+<li><input disabled="" type="checkbox"> Login endpoint to authenticate the user and generate a token</li>
+<li><input disabled="" type="checkbox"> CRUD operations for managing the to-do list</li>
+<li><input disabled="" type="checkbox"> Implement user authentication to allow only authorized users to access the to-do list</li>
+<li><input disabled="" type="checkbox"> Implement error handling and security measures</li>
+<li><input disabled="" type="checkbox"> Use a database to store the user and to-do list data (you can use any database of your choice)</li>
+<li><input disabled="" type="checkbox"> Implement proper data validation</li>
+<li><input disabled="" type="checkbox"> Implement pagination and filtering for the to-do list</li>
+</ul>
+<p>Given below is a list of the endpoints and the details of the request and response:</p>
+<p><strong>User Registration</strong>
+Register a new user using the following request:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">POST /register
+{
+  &quot;name&quot;: &quot;John Doe&quot;,
+  &quot;email&quot;: &quot;john&#64;doe.com&quot;
+  &quot;password&quot;: &quot;password&quot;
+}</code></pre></div><p>This will validate the given details, make sure the email is unique and store the user details in the database. Make sure to hash the password before storing it in the database. Respond with a token that can be used for authentication if the registration is successful.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">{
+  &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;
+}</code></pre></div><p>The token can either be a JWT token or a random string that can be used for authentication. We leave it up to you to decide the implementation details.</p>
+<h5><strong>User Login</strong></h5>
+<p>Authenticate the user using the following request:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">POST /login
+{
+  &quot;email&quot;: &quot;john&#64;doe.com&quot;,
+  &quot;password&quot;: &quot;password&quot;
+}</code></pre></div><p>This will validate the given email and password, and respond with a token if the authentication is successful.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">POST /login
+{
+  &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;
+}</code></pre></div><h5><strong>Create a To-Do Item</strong></h5>
+<p>Create a new to-do item using the following request:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">POST /todos
+{
+  &quot;title&quot;: &quot;Buy groceries&quot;,
+  &quot;description&quot;: &quot;Buy milk, eggs, and bread&quot;
+}</code></pre></div><p>User must send the token received from the login endpoint in the header to authenticate the request. You can use the Authorization header with the token as the value. In case the token is missing or invalid, respond with an error and status code 401.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">{
+  &quot;message&quot;: &quot;Unauthorized&quot;
+}</code></pre></div><p>Upon successful creation of the to-do item, respond with the details of the created item.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">{
+  &quot;id&quot;: 1,
+  &quot;title&quot;: &quot;Buy groceries&quot;,
+  &quot;description&quot;: &quot;Buy milk, eggs, and bread&quot;
+}</code></pre></div><h5><strong>Update a To-Do Item</strong></h5>
+<p>Update an existing to-do item using the following request:</p>
+<p>[...] All the requirement are found <a href="https://roadmap.sh/projects/todo-list-api">here</a></p>
+<h5>Bonus</h5>
+<ul>
+<li><input disabled="" type="checkbox"> Implement filtering and sorting for the to-do list</li>
+<li><input disabled="" type="checkbox"> Implement unit tests for the API</li>
+<li><input disabled="" type="checkbox"> Implement rate limiting and throttling for the API</li>
+<li><input disabled="" type="checkbox"> Implement refresh token mechanism for the authentication</li>
+</ul>
+<hr>
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 <h2>Description</h2>
+<p><a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/images/project_badges/sonarcloud-white.svg" alt="SonarCloud" class="img-responsive"></a></p>
+<div style="align-items: center">
+
+
+<p><a href="https://github.com/TheGreatJordach/Todo-List-APP/actions/workflows/dev-branch-pipeline.yml"><img src="https://github.com/TheGreatJordach/Todo-List-APP/actions/workflows/dev-branch-pipeline.yml/badge.svg" alt="Feature Branch CI Pipeline" class="img-responsive"></a>
+<a href="https://codecov.io/gh/TheGreatJordach/Todo-List-APP"><img src="https://codecov.io/gh/TheGreatJordach/Todo-List-APP/graph/badge.svg?token=ilMpWHnJYl" alt="codecov" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=duplicated_lines_density" alt="Duplicated Lines (%)" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=alert_status" alt="Quality Gate Status" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=code_smells" alt="Code Smells" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=bugs" alt="Bugs" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=ncloc" alt="Lines of Code" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=sqale_rating" alt="Maintainability Rating" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=sqale_index" alt="Technical Debt" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=vulnerabilities" alt="Vulnerabilities" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=security_rating" alt="Security Rating" class="img-responsive"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=TheGreatJordach_Todo-List-APP"><img src="https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_Todo-List-APP&metric=reliability_rating" alt="Reliability Rating" class="img-responsive"></a></p>
+</div>
+
+<h2>CI / CD</h2>
+<blockquote>
+<p>Dev workflow
+<img src="assets/images/dev_ci_workflow.png" alt="Ci description"></p>
+</blockquote>
 <p><a href="https://github.com/nestjs/nest">Nest</a> framework TypeScript starter repository.</p>
 <h2>Installation</h2>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-bash">$ yarn install</code></pre></div><h2>Running the app</h2>

@@ -79,101 +79,136 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content miscellaneous-functions">
+               <div class="content controller">
                    <div class="content-data">
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Miscellaneous</li>
-  <li class="breadcrumb-item">Functions</li>
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >ReadTodoController</li>
 </ol>
 
-<section data-compodoc="block-index">
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/tasks/read-op/read-todo.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>read/todos/</code>
+            </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <ul class="index-list">
-                        <li>
-                            <a href="#bootstrap" title="src/main.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(src/.../main.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#isNonEmptyPositiveNumber" title="src/common/decorators/is-non-empty-positive.int.ts" ><b>isNonEmptyPositiveNumber</b>&nbsp;&nbsp;&nbsp;(src/.../is-non-empty-positive.int.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#IsNonEmptyString" title="src/common/decorators/is-non-empty-string.ts" ><b>IsNonEmptyString</b>&nbsp;&nbsp;&nbsp;(src/.../is-non-empty-string.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#validatedEnvVariables" title="src/validate-all-env/environmentValidation.ts" ><b>validatedEnvVariables</b>&nbsp;&nbsp;&nbsp;(src/.../environmentValidation.ts)</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#allTodos" >allTodos</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#todoById" >todoById</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
         </tbody>
     </table>
 </section>
 
-    <h3>src/main.ts</h3>
-    <section data-compodoc="block-methods">
-    <h3></h3>    <table class="table table-sm table-bordered">
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="bootstrap"></a>
+                    <a name="allTodos"></a>
                     <span class="name">
-                        <span ><b>bootstrap</b></span>
-                        <a href="#bootstrap"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>allTodos</b></span>
+                        <a href="#allTodos"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>bootstrap()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>allTodos(query: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
-
-
-
-        </tbody>
-    </table>
-</section>    <h3>src/common/decorators/is-non-empty-positive.int.ts</h3>
-    <section data-compodoc="block-methods">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="isNonEmptyPositiveNumber"></a>
-                    <span class="name">
-                        <span ><b>isNonEmptyPositiveNumber</b></span>
-                        <a href="#isNonEmptyPositiveNumber"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>isNonEmptyPositiveNumber(validationOptions?: ValidationOptions)</code>
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@ApiResponse({})<br />@ApiOperation({summary: &#x27;Get all todos&#x27;, description: &#x27;Fetches a list of all Todo items from the database or return an Empty List if not found.&#x27;})<br />@ApiResponse({status: 200, description: &#x27;The Todo List has been successfully retrieved.&#x27;, type: undefined})<br />@ApiResponse({status: 404, description: &#x27;Todo item not found.&#x27;})<br /></code>
                 </td>
             </tr>
 
-
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="21"
+                                    class="link-to-prism">src/tasks/read-op/read-todo.controller.ts:21</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
@@ -192,121 +227,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>validationOptions</td>
+                                                <td>query</td>
                                             <td>
-                                                        <code>ValidationOptions</code>
-                                            </td>
-
-                                            <td>
-                                                    Yes
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>src/common/decorators/is-non-empty-string.ts</h3>
-    <section data-compodoc="block-methods">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="IsNonEmptyString"></a>
-                    <span class="name">
-                        <span ><b>IsNonEmptyString</b></span>
-                        <a href="#IsNonEmptyString"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>IsNonEmptyString(validationOptions?: ValidationOptions)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>validationOptions</td>
-                                            <td>
-                                                        <code>ValidationOptions</code>
-                                            </td>
-
-                                            <td>
-                                                    Yes
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>src/validate-all-env/environmentValidation.ts</h3>
-    <section data-compodoc="block-methods">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="validatedEnvVariables"></a>
-                    <span class="name">
-                        <span ><b>validatedEnvVariables</b></span>
-                        <a href="#validatedEnvVariables"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>validatedEnvVariables(config: Record)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>config</td>
-                                            <td>
-                                                        <code>Record</code>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                             </td>
 
                                             <td>
@@ -318,11 +241,153 @@
                                     </tbody>
                                 </table>
                             </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="todoById"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>todoById</b></span>
+                        <a href="#todoById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>todoById(undefined: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiResponse({status: 200, description: &#x27;The Todo item has been successfully retrieved.&#x27;, type: Todo})<br />@ApiResponse({status: 404, description: &#x27;Todo item not found.&#x27;})<br />@ApiOperation({summary: &#x27; Return the Todo items with the provided id.&#x27;, description: &#x27;Fetches the item from the database or return null if not found.&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/tasks/read-op/read-todo.controller.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Query } from &quot;@nestjs/common&quot;;
+import { ReadTodoService } from &quot;./read-todo.service&quot;;
+import { ApiOperation, ApiResponse, ApiTags } from &quot;@nestjs/swagger&quot;;
+import { Todo } from &quot;../entities/task.entity&quot;;
+import { IdDto } from &quot;../../common/dtos/id-dto&quot;;
+
+@ApiTags(&quot;Todo - read operation&quot;)
+@Controller(&#x27;read/todos/&#x27;)
+export class ReadTodoController {
+
+  constructor(private readonly readTaskService: ReadTodoService) {}
+
+  @Get()
+  @ApiResponse({})
+  @ApiOperation({
+    summary: &quot;Get all todos&quot;,
+    description: &quot;Fetches a list of all Todo items from the database or return an Empty List if not found.&quot;,
+  })
+  @ApiResponse({ status: 200, description: &#x27;The Todo List has been successfully retrieved.&#x27;, type: [Todo] })
+  @ApiResponse({ status: 404, description: &#x27;Todo item not found.&#x27; })
+  allTodos(@Query() query: any) {
+   const {limit, offset} &#x3D; query
+   console.log(&#x60;Limit!${limit} | offset: ${offset}&#x60;);
+    return this.readTaskService.getAllTasks()
+  }
+
+  @Get(&quot;:id&quot;)
+  @ApiResponse({ status: 200, description: &#x27;The Todo item has been successfully retrieved.&#x27;, type: Todo })
+  @ApiResponse({ status: 404, description: &#x27;Todo item not found.&#x27; })
+  @ApiOperation({
+    summary: &quot; Return the Todo items with the provided id.&quot;,
+    description: &quot;Fetches the item from the database or return null if not found.&quot;
+  })
+  todoById(@Param() { id }: IdDto) {
+    return &quot;This handler returns task with id &quot; + id;
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                    </div><div class="search-results">
@@ -350,8 +415,8 @@
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-functions';
-            var COMPODOC_CURRENT_PAGE_URL = 'functions.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'ReadTodoController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

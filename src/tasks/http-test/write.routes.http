@@ -16,10 +16,10 @@ Accept: application/json
 
 
 ### UPDATE A POST
-PATCH http://localhost:3000/api/v1/write/todos/1
+PATCH http://localhost:3000/v1/api/write/todos/10
 Content-Type: application/json
 
 {
-  "id": 999,
-  "value": "content"
+  "title": "999,",
+  "description": "content"
 }

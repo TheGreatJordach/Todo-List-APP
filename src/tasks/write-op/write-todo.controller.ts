@@ -56,9 +56,26 @@ export class WriteTodoController {
     return await this.writeTodoService.create(createTodoDto);
  }
 
+
+  /**
+   * Update a todo task
+   * Update task item
+   *
+   * @param {IdDto} id - The ID of the todo task to update
+   * @param {UpdateTodoDto} updateTaskDto - The data to update the todo task
+   *
+   * @returns {any} The result of the update operation
+   */
+ @ApiOperation({
+   summary: "Update a todo task",
+   description: "Update task item",
+
+ })
+ @ApiResponse({type:UpdateTodoDto,description: "The todo has ben successfully updated", status:200})
+ @ApiResponse({description: "No content haven been updated ", status:204})
   @Patch(':id')
-  update(@Param() { id }: IdDto, @Body() updateTaskDto: UpdateTodoDto) {
-    return this.writeTodoService.update(id, updateTaskDto);
+  async update(@Param() { id }: IdDto, @Body() updateTaskDto: UpdateTodoDto):Promise<Todo> {
+    return await this.writeTodoService.update(id, updateTaskDto);
   }
 
   @Delete(':id')

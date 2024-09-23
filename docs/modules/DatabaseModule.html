@@ -7,9 +7,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	   <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
           <script>
@@ -64,7 +64,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="./" class="navbar-brand">todo-list-app documentation</a>
+                    <a href="../" class="navbar-brand">todo-list-app documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -79,30 +79,75 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content module">
                    <div class="content-data">
 
-<p>MIT License</p>
-<p>Copyright (c) 2024 Jordach Makaya</p>
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the &quot;Software&quot;), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:</p>
-<p>The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.</p>
-<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</p>
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Modules</li>
+    <li class="breadcrumb-item" >DatabaseModule</li>
+</ol>
+
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a href="#info" 
+            class="nav-link"
+            class="nav-link active"
+            role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li class="nav-item">
+        <a href="#source" 
+            class="nav-link"
+            
+            role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/database/database.module.ts</code>
+        </p>
 
 
 
 
+
+        <div class="container-fluid module">
+            <div class="row">
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
+import { ConfigModule, ConfigService } from &quot;@nestjs/config&quot;;
+import { TypeOrmModule } from &quot;@nestjs/typeorm&quot;;
+import { DatabaseConfig } from &quot;../configuration/db/database-config&quot;;
+import { validatedEnvVariables } from &quot;../validate-all-env/environmentValidation&quot;;
+
+@Module({
+  imports:[ConfigModule.forRoot({
+    validate:validatedEnvVariables
+  }), TypeOrmModule.forRootAsync({
+    inject: [ConfigService],
+    imports: [ConfigModule],
+    useFactory: DatabaseConfig
+  })]
+})
+export class DatabaseModule {}
+</code></pre>
+    </div>
+</div>
 
 
 
@@ -144,9 +189,9 @@ SOFTWARE.</p>
           </label>
 
        <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
-            var COMPODOC_CURRENT_PAGE_URL = 'license.html';
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
+            var COMPODOC_CURRENT_PAGE_URL = 'DatabaseModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
@@ -163,31 +208,31 @@ SOFTWARE.</p>
                }
           </script>
 
-       <script src="./js/libs/custom-elements.min.js"></script>
-       <script src="./js/libs/lit-html.js"></script>
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
 
-       <script src="./js/menu-wc.js" defer></script>
-       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
-       <script src="./js/libs/bootstrap-native.js"></script>
+       <script src="../js/libs/bootstrap-native.js"></script>
 
-       <script src="./js/libs/es6-shim.min.js"></script>
-       <script src="./js/libs/EventDispatcher.js"></script>
-       <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
 
-       <script src="./js/compodoc.js"></script>
+       <script src="../js/compodoc.js"></script>
 
-       <script src="./js/tabs.js"></script>
-       <script src="./js/menu.js"></script>
-       <script src="./js/libs/clipboard.min.js"></script>
-       <script src="./js/libs/prism.js"></script>
-       <script src="./js/sourceCode.js"></script>
-          <script src="./js/search/search.js"></script>
-          <script src="./js/search/lunr.min.js"></script>
-          <script src="./js/search/search-lunr.js"></script>
-          <script src="./js/search/search_index.js"></script>
-       <script src="./js/lazy-load-graphs.js"></script>
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
 
 
     </body>

@@ -19,18 +19,32 @@ export class WriteTodoService {
 
   }
 
-  findAll() {
-    return `This action returns all tasks`;
+
+
+  async update(id: number, updateTaskDto: UpdateTodoDto): Promise<Todo> {
+    // Executes a SQL COUNT query, returns 0 if nothing is found
+    const todoCount: number = await this.todoRepository.count({where: {identifier: id}});
+
+    // If no todo is found, throw NotFoundException
+    if(todoCount === 0){
+      throw new NotFoundException(`Todo ${id} not found`);
+    }
+
+    // Try to preload the updated entity
+    const updatedTodo = await this.todoRepository.preload({
+      identifier:id,
+      ...updateTaskDto,
+    });
+
+    // If preload fails, throw NotFoundException
+    if(!updatedTodo) {
+      throw new NotFoundException(`Todo ${id} not found`);}
+
+    return await this.todoRepository.save(updatedTodo);
+
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} task`;
-  }
-
-  update(id: number, updateTaskDto: UpdateTodoDto) {
-    return `This action updates a #${id} task`;
-  }
-
+  // Save and return the updated todo
   remove(id: number) {
     return `This action removes a #${id} task`;
   }

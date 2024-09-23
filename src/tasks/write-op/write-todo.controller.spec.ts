@@ -5,6 +5,7 @@ import { Todo } from "../entities/task.entity";
 import { TaskPriority, TaskStatus } from "../enums/Task-enums";
 import { BaseUserDto } from "../../users/dto/base-user.dto";
 import { BaseTodoDto } from "../dto/base-todo.dto";
+import { UpdateTodoDto } from "../dto/update-todo.dto";
 
 
 /***** About the Test ***************************
@@ -22,8 +23,8 @@ import { BaseTodoDto } from "../dto/base-todo.dto";
  !* 8. Verifying that the controller returns the created todo item and the correct HTTP status.
  *****/
 
+describe("WriteTodoController", () => {
 
-describe('WriteTodoController', () => {
   let controller: WriteTodoController;
   let service: WriteTodoService;
 
@@ -54,78 +55,186 @@ describe('WriteTodoController', () => {
   };
 
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [WriteTodoController],
-      providers: [{
-        provide: WriteTodoService,
-        useValue: {
-          create: jest.fn().mockResolvedValue(mockTodo)
-        }
-      }],
-    }).compile();
+  describe('Create Methode', () => {
 
-    controller = module.get<WriteTodoController>(WriteTodoController);
-    service = module.get<WriteTodoService>(WriteTodoService)
+
+    beforeEach(async () => {
+      const module: TestingModule = await Test.createTestingModule({
+        controllers: [WriteTodoController],
+        providers: [{
+          provide: WriteTodoService,
+          useValue: {
+            create: jest.fn().mockResolvedValue(mockTodo)
+          }
+        }],
+      }).compile();
+
+      controller = module.get<WriteTodoController>(WriteTodoController);
+      service = module.get<WriteTodoService>(WriteTodoService)
+    });
+
+
+
+    it('should be defined', () => {
+      expect(controller).toBeDefined();
+    });
+
+    // 1. Successfully create a new todo item with valid data
+    it('should create a new todo successfully', async () => {
+      const result = await controller.create(mockCreateTodoDto);
+      expect(service.create).toHaveBeenCalledWith(mockCreateTodoDto);
+      expect(result).toEqual(mockTodo);
+    });
+
+    it('should create a new todo successfully with optional fields', async () => {
+      const mockCreateTodoWithOptionalFields = {
+        ...mockCreateTodoDto,
+        status: TaskStatus.IN_PROGRESS,
+        priority: TaskPriority.HIGH,
+        duDate: new Date(),
+      };
+      const result = await controller.create(mockCreateTodoWithOptionalFields);
+      expect(service.create).toHaveBeenCalledWith(mockCreateTodoWithOptionalFields);
+      expect(result).toEqual(mockTodo);
+    });
+
+    it('should throw an error if the service throws an error', async () => {
+      jest.spyOn(service, 'create').mockRejectedValueOnce(new Error('Service Error'));
+      await expect(controller.create(mockCreateTodoDto)).rejects.toThrow('Service Error');
+    });
+
+    it('should throw an error if a unique constraint is violated in the database', async () => {
+      jest.spyOn(service, 'create').mockRejectedValueOnce(new Error('Unique constraint error'));
+      await expect(controller.create(mockCreateTodoDto)).rejects.toThrow('Unique constraint error');
+    });
+
+    it('should create a new todo without versions', async () => {
+      const todoWithoutVersions = { ...mockCreateTodoDto, versions: [] };
+      const result = await controller.create(todoWithoutVersions);
+      expect(service.create).toHaveBeenCalledWith(todoWithoutVersions);
+      expect(result).toEqual(mockTodo);
+    });
+
+    it('should call the create method of the service once', async () => {
+      await controller.create(mockCreateTodoDto);
+      expect(service.create).toHaveBeenCalledTimes(1);
+    });
+
+    it('should create a new todo when priority is not set', async () => {
+      const todoWithoutPriority = { ...mockCreateTodoDto, priority: undefined };
+      const result = await controller.create(todoWithoutPriority);
+      expect(service.create).toHaveBeenCalledWith(todoWithoutPriority);
+      expect(result).toEqual(mockTodo);
+    });
+
+    it('should return the created todo and HTTP status 201', async () => {
+      const result = await controller.create(mockCreateTodoDto);
+      expect(result).toEqual(mockTodo); // Check the returned value
+      expect(service.create).toHaveBeenCalledWith(mockCreateTodoDto); // Ensure the service was called with correct DTO
+
+    });
+
+    // Suggested Tests for update Method
+
+
   });
 
+  describe('Update method', () => {
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
+    const mockUpdateTodoDto: UpdateTodoDto = {
+      title: 'Updated Todo',
+      description: 'This is an updated test todo item.',
+      status: TaskStatus.IN_PROGRESS,
+      duDate: new Date(),
+      priority: TaskPriority.HIGH,
+      user: { name: 'John Doe', email: 'john@example.com' }, // Mock user
+      versions: [],
+    };
 
-  // 1. Successfully create a new todo item with valid data
-  it('should create a new todo successfully', async () => {
-    const result = await controller.create(mockCreateTodoDto);
-    expect(service.create).toHaveBeenCalledWith(mockCreateTodoDto);
-    expect(result).toEqual(mockTodo);
-  });
-
-  it('should create a new todo successfully with optional fields', async () => {
-    const mockCreateTodoWithOptionalFields = {
-      ...mockCreateTodoDto,
+    const mockUpdatedTodo: Todo = {
+      registry: undefined, user: undefined, versions: [],
+      afterInsert(): void {}, afterLoad(): void {}, afterUpdate(): void {},
+      identifier: 1,
+      title: 'Updated Todo',
+      description: 'This is an updated test todo item.',
       status: TaskStatus.IN_PROGRESS,
       priority: TaskPriority.HIGH,
-      duDate: new Date(),
     };
-    const result = await controller.create(mockCreateTodoWithOptionalFields);
-    expect(service.create).toHaveBeenCalledWith(mockCreateTodoWithOptionalFields);
-    expect(result).toEqual(mockTodo);
-  });
 
-  it('should throw an error if the service throws an error', async () => {
-    jest.spyOn(service, 'create').mockRejectedValueOnce(new Error('Service Error'));
-    await expect(controller.create(mockCreateTodoDto)).rejects.toThrow('Service Error');
-  });
+    beforeEach(async () => {
+      const module: TestingModule = await Test.createTestingModule({
+        controllers: [WriteTodoController],
+        providers: [{
+          provide: WriteTodoService,
+          useValue: {
+            update: jest.fn().mockResolvedValue(mockUpdatedTodo),
+          },
+        }],
+      }).compile();
 
-  it('should throw an error if a unique constraint is violated in the database', async () => {
-    jest.spyOn(service, 'create').mockRejectedValueOnce(new Error('Unique constraint error'));
-    await expect(controller.create(mockCreateTodoDto)).rejects.toThrow('Unique constraint error');
-  });
+      controller = module.get<WriteTodoController>(WriteTodoController);
+      service = module.get<WriteTodoService>(WriteTodoService);
+    });
 
-  it('should create a new todo without versions', async () => {
-    const todoWithoutVersions = { ...mockCreateTodoDto, versions: [] };
-    const result = await controller.create(todoWithoutVersions);
-    expect(service.create).toHaveBeenCalledWith(todoWithoutVersions);
-    expect(result).toEqual(mockTodo);
-  });
+    it('should be defined', () => {
+      expect(controller).toBeDefined();
+    });
 
-  it('should call the create method of the service once', async () => {
-    await controller.create(mockCreateTodoDto);
-    expect(service.create).toHaveBeenCalledTimes(1);
-  });
+    // 1. Successfully update a todo item with valid data
+    it('should update a todo successfully', async () => {
+      const result = await controller.update({ id: 1 }, mockUpdateTodoDto);
+      expect(service.update).toHaveBeenCalledWith(1, mockUpdateTodoDto);
+      expect(result).toEqual(mockUpdatedTodo);
+    });
 
-  it('should create a new todo when priority is not set', async () => {
-    const todoWithoutPriority = { ...mockCreateTodoDto, priority: undefined };
-    const result = await controller.create(todoWithoutPriority);
-    expect(service.create).toHaveBeenCalledWith(todoWithoutPriority);
-    expect(result).toEqual(mockTodo);
-  });
+    // 2. Update a todo item with optional fields included
+    it('should update a todo with optional fields', async () => {
+      const result = await controller.update({ id: 1 }, { ...mockUpdateTodoDto, priority: undefined });
+      expect(service.update).toHaveBeenCalledWith(1, { ...mockUpdateTodoDto, priority: undefined });
+      expect(result).toEqual(mockUpdatedTodo);
+    });
 
-  it('should return the created todo and HTTP status 201', async () => {
-    const result = await controller.create(mockCreateTodoDto);
-    expect(result).toEqual(mockTodo); // Check the returned value
-    expect(service.create).toHaveBeenCalledWith(mockCreateTodoDto); // Ensure the service was called with correct DTO
+    // 3. Handle errors thrown by the service
+    it('should throw an error if the service throws an error', async () => {
+      jest.spyOn(service, 'update').mockRejectedValueOnce(new Error('Service Error'));
+      await expect(controller.update({ id: 1 }, mockUpdateTodoDto)).rejects.toThrow('Service Error');
+    });
 
-  });
-});
+    // 4. Handle unique constraint violations from the database
+    it('should throw an error if a unique constraint is violated in the database', async () => {
+      jest.spyOn(service, 'update').mockRejectedValueOnce(new Error('Unique constraint error'));
+      await expect(controller.update({ id: 1 }, mockUpdateTodoDto)).rejects.toThrow('Unique constraint error');
+    });
+
+    // 5. Update without changing certain fields
+    it('should update todo without changing the priority', async () => {
+      const result = await controller.update({ id: 1 }, { ...mockUpdateTodoDto, priority: undefined });
+      expect(service.update).toHaveBeenCalledWith(1, { ...mockUpdateTodoDto, priority: undefined });
+      expect(result).toEqual(mockUpdatedTodo);
+    });
+
+    // 6. Ensure the update method of the service is called exactly once
+    it('should call the update method of the service once', async () => {
+      await controller.update({ id: 1 }, mockUpdateTodoDto);
+      expect(service.update).toHaveBeenCalledTimes(1);
+    });
+
+    // 7. Return the updated todo and HTTP status 200
+    it('should return the updated todo and HTTP status 200', async () => {
+      const result = await controller.update({ id: 1 }, mockUpdateTodoDto);
+      expect(result).toEqual(mockUpdatedTodo);
+    });
+
+    // 8 ID not found
+    it('should throw an error if the todo item with the given ID is not found', async () => {
+      jest.spyOn(service, 'update').mockRejectedValueOnce(new Error('Todo not found'));
+      await expect(controller.update({ id: 999 }, mockUpdateTodoDto)).rejects.toThrow('Todo not found');
+    });
+
+  })
+
+
+})
+
+
+

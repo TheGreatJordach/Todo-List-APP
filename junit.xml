@@ -1,49 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="15" failures="3" errors="0" time="17.528">
-  <testsuite name="ReadTasksService" errors="0" failures="0" skipped="0" timestamp="2024-09-22T19:07:21" time="10.838" tests="1">
-    <testcase classname="ReadTasksService should be defined" name="ReadTasksService should be defined" time="0.058">
+<testsuites name="jest tests" tests="24" failures="3" errors="0" time="15.576">
+  <testsuite name="ReadTasksService" errors="0" failures="0" skipped="0" timestamp="2024-09-22T23:57:37" time="11.474" tests="1">
+    <testcase classname="ReadTasksService should be defined" name="ReadTasksService should be defined" time="0.03">
     </testcase>
   </testsuite>
-  <testsuite name="UsersService" errors="0" failures="0" skipped="0" timestamp="2024-09-22T19:07:21" time="14.907" tests="1">
-    <testcase classname="UsersService should be defined" name="UsersService should be defined" time="0.054">
+  <testsuite name="UsersService" errors="0" failures="0" skipped="0" timestamp="2024-09-22T23:57:37" time="11.744" tests="1">
+    <testcase classname="UsersService should be defined" name="UsersService should be defined" time="0.032">
     </testcase>
   </testsuite>
-  <testsuite name="TasksService" errors="0" failures="1" skipped="0" timestamp="2024-09-22T19:07:21" time="16.224" tests="1">
-    <testcase classname="TasksService should be defined" name="TasksService should be defined" time="0.024">
-      <failure>Error: Nest can&apos;t resolve dependencies of the WriteTodoService (?). Please make sure that the argument &quot;TodoRepository&quot; at index [0] is available in the RootTestModule context.
-
-Potential solutions:
-- Is RootTestModule a valid NestJS module?
-- If &quot;TodoRepository&quot; is a provider, is it part of the current RootTestModule?
-- If &quot;TodoRepository&quot; is exported from a separate @Module, is that module imported within RootTestModule?
-  @Module({
-    imports: [ /* the Module containing &quot;TodoRepository&quot; */ ]
-  })
-
-    at TestingInjector.lookupComponentInParentModules (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:254:19)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at TestingInjector.resolveComponentInstance (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:207:33)
-    at TestingInjector.resolveComponentInstance (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\testing\testing-injector.js:19:45)
-    at resolveParam (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:128:38)
-    at async Promise.all (index 0)
-    at TestingInjector.resolveConstructorParams (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:143:27)
-    at TestingInjector.loadInstance (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:70:13)
-    at TestingInjector.loadProvider (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:97:9)
-    at I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:56:13
-    at async Promise.all (index 3)
-    at TestingInstanceLoader.createInstancesOfProviders (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:55:9)
-    at I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:40:13
-    at async Promise.all (index 1)
-    at TestingInstanceLoader.createInstances (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:39:9)
-    at TestingInstanceLoader.createInstancesOfDependencies (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:22:13)
-    at TestingInstanceLoader.createInstancesOfDependencies (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\testing\testing-instance-loader.js:9:9)
-    at TestingModuleBuilder.createInstancesOfDependencies (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\testing\testing-module.builder.js:118:9)
-    at TestingModuleBuilder.compile (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\testing\testing-module.builder.js:74:9)
-    at Object.&lt;anonymous&gt; (I:\NEST-WORKING-DIR\Todo-List-APP\src\tasks\write-op\write-todo.service.spec.ts:8:35)</failure>
-    </testcase>
-  </testsuite>
-  <testsuite name="VersioningService" errors="0" failures="1" skipped="0" timestamp="2024-09-22T19:07:21" time="16.252" tests="1">
-    <testcase classname="VersioningService should be defined" name="VersioningService should be defined" time="0.025">
+  <testsuite name="VersioningService" errors="0" failures="1" skipped="0" timestamp="2024-09-22T23:57:37" time="12.727" tests="1">
+    <testcase classname="VersioningService should be defined" name="VersioningService should be defined" time="0.029">
       <failure>Error: Nest can&apos;t resolve dependencies of the VersioningService (?, TodoRepository). Please make sure that the argument &quot;TodoVersionRepository&quot; at index [0] is available in the RootTestModule context.
 
 Potential solutions:
@@ -76,8 +42,8 @@ Potential solutions:
     at Object.&lt;anonymous&gt; (I:\NEST-WORKING-DIR\Todo-List-APP\src\versioning\versioning.service.spec.ts:8:35)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="ReadTasksController" errors="0" failures="1" skipped="0" timestamp="2024-09-22T19:07:21" time="16.706" tests="1">
-    <testcase classname="ReadTasksController should be defined" name="ReadTasksController should be defined" time="0.023">
+  <testsuite name="ReadTasksController" errors="0" failures="1" skipped="0" timestamp="2024-09-22T23:57:37" time="13.274" tests="1">
+    <testcase classname="ReadTasksController should be defined" name="ReadTasksController should be defined" time="0.029">
       <failure>Error: Nest can&apos;t resolve dependencies of the ReadTodoController (?). Please make sure that the argument ReadTodoService at index [0] is available in the RootTestModule context.
 
 Potential solutions:
@@ -110,28 +76,80 @@ Potential solutions:
     at Object.&lt;anonymous&gt; (I:\NEST-WORKING-DIR\Todo-List-APP\src\tasks\read-op\read-todo.controller.spec.ts:8:35)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="UsersController" errors="0" failures="0" skipped="0" timestamp="2024-09-22T19:07:21" time="16.718" tests="1">
-    <testcase classname="UsersController should be defined" name="UsersController should be defined" time="0.027">
+  <testsuite name="UsersController" errors="0" failures="0" skipped="0" timestamp="2024-09-22T23:57:37" time="13.503" tests="1">
+    <testcase classname="UsersController should be defined" name="UsersController should be defined" time="0.024">
     </testcase>
   </testsuite>
-  <testsuite name="WriteTodoController" errors="0" failures="0" skipped="0" timestamp="2024-09-22T19:07:21" time="16.696" tests="9">
-    <testcase classname="WriteTodoController should be defined" name="WriteTodoController should be defined" time="0.021">
+  <testsuite name="WriteTodoController" errors="0" failures="0" skipped="0" timestamp="2024-09-22T23:57:37" time="13.627" tests="18">
+    <testcase classname="WriteTodoController Create Methode should be defined" name="WriteTodoController Create Methode should be defined" time="0.027">
     </testcase>
-    <testcase classname="WriteTodoController should create a new todo successfully" name="WriteTodoController should create a new todo successfully" time="0.006">
+    <testcase classname="WriteTodoController Create Methode should create a new todo successfully" name="WriteTodoController Create Methode should create a new todo successfully" time="0.008">
     </testcase>
-    <testcase classname="WriteTodoController should create a new todo successfully with optional fields" name="WriteTodoController should create a new todo successfully with optional fields" time="0.002">
+    <testcase classname="WriteTodoController Create Methode should create a new todo successfully with optional fields" name="WriteTodoController Create Methode should create a new todo successfully with optional fields" time="0.005">
     </testcase>
-    <testcase classname="WriteTodoController should throw an error if the service throws an error" name="WriteTodoController should throw an error if the service throws an error" time="0.013">
+    <testcase classname="WriteTodoController Create Methode should throw an error if the service throws an error" name="WriteTodoController Create Methode should throw an error if the service throws an error" time="0.022">
     </testcase>
-    <testcase classname="WriteTodoController should throw an error if a unique constraint is violated in the database" name="WriteTodoController should throw an error if a unique constraint is violated in the database" time="0.004">
+    <testcase classname="WriteTodoController Create Methode should throw an error if a unique constraint is violated in the database" name="WriteTodoController Create Methode should throw an error if a unique constraint is violated in the database" time="0.003">
     </testcase>
-    <testcase classname="WriteTodoController should create a new todo without versions" name="WriteTodoController should create a new todo without versions" time="0.003">
+    <testcase classname="WriteTodoController Create Methode should create a new todo without versions" name="WriteTodoController Create Methode should create a new todo without versions" time="0.002">
     </testcase>
-    <testcase classname="WriteTodoController should call the create method of the service once" name="WriteTodoController should call the create method of the service once" time="0.002">
+    <testcase classname="WriteTodoController Create Methode should call the create method of the service once" name="WriteTodoController Create Methode should call the create method of the service once" time="0.002">
     </testcase>
-    <testcase classname="WriteTodoController should create a new todo when priority is not set" name="WriteTodoController should create a new todo when priority is not set" time="0.002">
+    <testcase classname="WriteTodoController Create Methode should create a new todo when priority is not set" name="WriteTodoController Create Methode should create a new todo when priority is not set" time="0.002">
     </testcase>
-    <testcase classname="WriteTodoController should return the created todo and HTTP status 201" name="WriteTodoController should return the created todo and HTTP status 201" time="0.004">
+    <testcase classname="WriteTodoController Create Methode should return the created todo and HTTP status 201" name="WriteTodoController Create Methode should return the created todo and HTTP status 201" time="0.002">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should be defined" name="WriteTodoController Update method should be defined" time="0.002">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should update a todo successfully" name="WriteTodoController Update method should update a todo successfully" time="0.002">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should update a todo with optional fields" name="WriteTodoController Update method should update a todo with optional fields" time="0.002">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should throw an error if the service throws an error" name="WriteTodoController Update method should throw an error if the service throws an error" time="0.002">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should throw an error if a unique constraint is violated in the database" name="WriteTodoController Update method should throw an error if a unique constraint is violated in the database" time="0.002">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should update todo without changing the priority" name="WriteTodoController Update method should update todo without changing the priority" time="0.002">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should call the update method of the service once" name="WriteTodoController Update method should call the update method of the service once" time="0.001">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should return the updated todo and HTTP status 200" name="WriteTodoController Update method should return the updated todo and HTTP status 200" time="0.001">
+    </testcase>
+    <testcase classname="WriteTodoController Update method should throw an error if the todo item with the given ID is not found" name="WriteTodoController Update method should throw an error if the todo item with the given ID is not found" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="TasksService" errors="0" failures="1" skipped="0" timestamp="2024-09-22T23:57:37" time="14.841" tests="1">
+    <testcase classname="TasksService should be defined" name="TasksService should be defined" time="0.02">
+      <failure>Error: Nest can&apos;t resolve dependencies of the WriteTodoService (?). Please make sure that the argument &quot;TodoRepository&quot; at index [0] is available in the RootTestModule context.
+
+Potential solutions:
+- Is RootTestModule a valid NestJS module?
+- If &quot;TodoRepository&quot; is a provider, is it part of the current RootTestModule?
+- If &quot;TodoRepository&quot; is exported from a separate @Module, is that module imported within RootTestModule?
+  @Module({
+    imports: [ /* the Module containing &quot;TodoRepository&quot; */ ]
+  })
+
+    at TestingInjector.lookupComponentInParentModules (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:254:19)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at TestingInjector.resolveComponentInstance (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:207:33)
+    at TestingInjector.resolveComponentInstance (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\testing\testing-injector.js:19:45)
+    at resolveParam (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:128:38)
+    at async Promise.all (index 0)
+    at TestingInjector.resolveConstructorParams (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:143:27)
+    at TestingInjector.loadInstance (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:70:13)
+    at TestingInjector.loadProvider (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\injector.js:97:9)
+    at I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:56:13
+    at async Promise.all (index 3)
+    at TestingInstanceLoader.createInstancesOfProviders (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:55:9)
+    at I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:40:13
+    at async Promise.all (index 1)
+    at TestingInstanceLoader.createInstances (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:39:9)
+    at TestingInstanceLoader.createInstancesOfDependencies (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\core\injector\instance-loader.js:22:13)
+    at TestingInstanceLoader.createInstancesOfDependencies (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\testing\testing-instance-loader.js:9:9)
+    at TestingModuleBuilder.createInstancesOfDependencies (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\testing\testing-module.builder.js:118:9)
+    at TestingModuleBuilder.compile (I:\NEST-WORKING-DIR\Todo-List-APP\node_modules\@nestjs\testing\testing-module.builder.js:74:9)
+    at Object.&lt;anonymous&gt; (I:\NEST-WORKING-DIR\Todo-List-APP\src\tasks\write-op\write-todo.service.spec.ts:8:35)</failure>
     </testcase>
   </testsuite>
 </testsuites>
